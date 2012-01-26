@@ -36,3 +36,7 @@ for the framecurve file and tell you which channel is going to be exported.
 **Make sure to give the file a ".framecurve.txt" double extension!**
 
 When the file is selected the channel will be exported to the Framecurve file.
+
+## License
+
+The scripts here are covered with [framecurve license](http://framecurve.org/scripts/#license).
