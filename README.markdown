@@ -2,8 +2,8 @@
 
 First of all, you will need our .jsx scripts for AE.
 
-* [Download the "Apply Framecurve As Kronos" script](scripts/Apply Framecurve As Kronos.jsx)<ul>
-* [Download the "Export Selected Property As Framecurve" script](scripts/Export Selected Property As Framecurve.jsx)
+* [Download the "Apply Framecurve As Kronos" script](framecurve_aftereffects/raw/master/scripts/Apply Framecurve As Kronos.jsx)<ul>
+* [Download the "Export Selected Property As Framecurve" script](framecurve_aftereffects/raw/master/scripts/Export Selected Property As Framecurve.jsx)
 
 Install these scripts like any others.
 
