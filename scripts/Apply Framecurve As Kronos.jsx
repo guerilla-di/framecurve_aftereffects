@@ -84,6 +84,9 @@
 				 }
 			}
 			
+			// Do not leave dangling file descriptors
+			f.close();
+			
 			// Now that we have a list of all the tuples, we can apply our effect.
 			applyFramecurve(records);
 		}
