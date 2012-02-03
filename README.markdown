@@ -2,9 +2,7 @@
 
 First of all, you will need our .jsx scripts for AE.
 
-* [Download the "framecurve.jsx" base script](framecurve_aftereffects/raw/master/scripts/framecurve.jsx)
-* [Download the "Apply Framecurve As Kronos" script](framecurve_aftereffects/raw/master/scripts/Apply Framecurve As Kronos.jsx)
-* [Download the "Apply Framecurve As Time Remap" script](framecurve_aftereffects/raw/master/scripts/Apply Framecurve As Time Remap.jsx)
+* [Download the "Apply Framecurve To Current Layer" script](framecurve_aftereffects/raw/master/scripts/Apply Framecurve To Current Layer.jsx)
 * [Download the "Export Selected Property As Framecurve" script](framecurve_aftereffects/raw/master/scripts/Export Selected Property As Framecurve.jsx)
 
 Install these scripts like any others.
