@@ -18,6 +18,9 @@ function FramecurveApplier()
 	{
 		this.atFrame = parseInt(atFrame);
 		this.useFrameOfSource = parseFloat(useFrameOfSource);
+		this.toString = function() {
+			return this.atFrame.toFixed(0) + "\t" + this.useFrameOfSource.toFixed(5);
+		}
 	}
 	
 	// setValueAtTime expects floating-point SECONDS
@@ -99,11 +102,12 @@ kronosApplier.applyFramecurveToLayer = function(layer, curveTuples)
 	var kronos = layer.Effects.addProperty("Timewarp");
 	// Set retiming to "Source Frame" instead of "Speed"
 	kronos.property("Adjust Time By").setValue(2);
+	var prop = kronos.property("Source Frame");
 	// Animate the source frame parameter
 	for(var i = 0; i < curveTuples.length; i++) {
 		var tuple = curveTuples[i];
 		// Frame numbers are 0-based in AE
-		kronos.property("Source Frame").setValueAtTime(this.convertFrameToSeconds(layer, tuple.atFrame), tuple.useFrameOfSource - 1);
+		prop.setValueAtTime(this.convertFrameToSeconds(layer, tuple.atFrame), tuple.useFrameOfSource - 1);
 	}
 }
 
@@ -111,21 +115,19 @@ var timeRemapApplier = new FramecurveApplier();
 timeRemapApplier.applyFramecurveToLayer = function(layer, curveTuples)
 {
 	var prop = layer.property("Time Remap");
-	// Remove old keys
-	while(prop.numKeys > 0) {
-		prop.removeKey(1);
-	}
+	// Toggle time remap to remove all the old keyframes
+	layer.timeRemapEnabled = false;
 	layer.timeRemapEnabled = true;
 	for(var i = 0; i < curveTuples.length; i++) {
 		var tuple = curveTuples[i];
 		// Frame numbers are 0-based in AE
-		prop.setValueAtTime(tuple[0], this.convertFrameToSeconds(layer, tuple[1]));
+		prop.setValueAtTime(i, this.convertFrameToSeconds(layer, tuple.useFrameOfSource));
 	}
 }
 
 function applyFromUI(win) {
 	win.close();
-	if(win.applyAsKronos) {
+	if(win.applyAsKronos.value) {
 		kronosApplier.run();
 	} else {
 		timeRemapApplier.run();
@@ -133,16 +135,16 @@ function applyFromUI(win) {
 }
 
 function buildUI(thisObj) {
-	var win =  new Window('window', 'Apply framecurve to layer', [300,100,670,270]);
+	var win =  new Window('window', 'Apply framecurve to layer', [10,10,356,356]);
 	
-	win.applyAsKronos = win.add('radiobutton', [14,45,184,67], 'Apply as Timewarp effect');
-	win.applyAsTimeRemap = win.add('radiobutton', [14,74,184,96], 'Apply as Time Remap');
+	win.applyAsKronos = win.add('radiobutton', [14,14,184,67], 'Apply as Timewarp effect');
+	win.applyAsTimeRemap = win.add('radiobutton', [14,14 + 14,184,96], 'Apply as Time Remap');
 	win.applyAsKronos.value = true;
-	win.applyButton = win.add('button', [273,136,353,158], 'Apply', {name:'Apply'});
+	win.applyButton = win.add('button', [14,14+14+14,56,56], 'Apply', {name:'Apply'});
 	win.applyButton.onClick = function() { 
 		applyFromUI(win);
 	}
-	return win
+	return win;
 }
 
 buildUI(this).show();
