@@ -137,9 +137,9 @@ function applyFromUI(win) {
 function buildUI(thisObj) {
 	var offset = 14;
 	// bounds are [tlx, tly, brx, bry]
-	var win =  new Window('window', 'Apply framecurve to layer', [offset, offset, 284 + (offset * 2), offset * 11]);
-	win.applyAsKronos = win.add('radiobutton', [offset, offset, 284, offset * 3], 'Apply as Timewarp effect');
-	win.applyAsTimeRemap = win.add('radiobutton', [offset, offset * 3, 284, offset * 6], 'Apply as Time Remap');
+	var win =  new Window('window', 'Apply framecurve to layer', [offset, offset, offset * 22, offset * 11]);
+	win.applyAsKronos = win.add('radiobutton', [offset, offset, offset * 20, offset * 3], 'Apply as Timewarp effect');
+	win.applyAsTimeRemap = win.add('radiobutton', [offset, offset * 3, offset * 20, offset * 6], 'Apply as Time Remap');
 	win.applyAsKronos.value = true;
 	win.applyButton = win.add('button', [offset, offset * 7, 284, offset * 9], 'Apply', {name:'Apply'});
 	win.applyButton.onClick = function() { 
