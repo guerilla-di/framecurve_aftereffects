@@ -2,8 +2,8 @@
 
 First of all, you will need our .jsx scripts for AE.
 
-* [Download the "Apply Framecurve To Current Layer" script](framecurve_aftereffects/raw/master/scripts/Apply Framecurve To Current Layer.jsx)
-* [Download the "Export Selected Property As Framecurve" script](framecurve_aftereffects/raw/master/scripts/Export Selected Property As Framecurve.jsx)
+* [Download the "Apply Framecurve To Selected Layer" script](framecurve_aftereffects/raw/master/scripts/Apply Framecurve To Selected Layer.jsx)
+* [Download the "Export Time Remap As Framecurve" script](framecurve_aftereffects/raw/master/scripts/Export Time Remap As Framecurve.jsx)
 
 Install these scripts like any others.
 
@@ -13,25 +13,27 @@ To apply a timewarp, select a layer in a comp.
 
 ![Countdown clip](framecurve_aftereffects/raw/master/images/AE-countdown.png)
 
-From the "Scripts" menu, pick "Apply Framecurve As Kronos"
+From the "Scripts" menu, pick "Apply Framecurve To Selected Layer"
 
-![Kronos](framecurve_aftereffects/raw/master/images/AE-apply-as-kronos.png)
+![Menu](framecurve_aftereffects/raw/master/images/AE-menu.png)
+
+Then you can make your choice whether you want a layer Time Remap or a Kronos/Timewarp effect on top of the layer. 
+Pick the one you want..
+
+![Picker](framecurve_aftereffects/raw/master/images/AE-pick-style.png)
 
 ...and pick the Framecurve file you want to apply to the layer.
-A Timewarp effect will be created automatically with the contents of the framecurve, thus retiming your layer to it.</p>
+
+The framecurve file will be loaded and applied to your layer.
 
 ![Applied!](framecurve_aftereffects/raw/master/images/AE-applied.png)
 
-## Exporting framecurves from AfterEffects
+## Exporting framecurves from Time Remap
 
-First, select an animated property you want to export (like a "Source frame" channel of a Timewarp effect).
+First, select a layer with Time Remap enabled.
 
-![Select channel](framecurve_aftereffects/raw/master/images/AE-select-channel.png)
-
-Once done, select "Export Selected Property As Framecurve". This will pop up a dialog for you to choose the filename
+Once done, select "Export Time Remap As Framecurve". This will pop up a dialog for you to choose the filename
 for the framecurve file and tell you which channel is going to be exported.
-
-![Channel name confirmation](framecurve_aftereffects/raw/master/images/AE-confirmation.png)
 
 **Make sure to give the file a ".framecurve.txt" double extension!**
 
