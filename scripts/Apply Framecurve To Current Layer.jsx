@@ -28,14 +28,19 @@ function FramecurveApplier()
 	// and divide our framecurve value
 	this.convertFrameToSeconds = function(layerWithFootage, frameValue)
 	{
-		var comp = layerWithFootage.containingComp;
-		var rate = 1.0 / comp.frameDuration;
+		var relativeSeconds = this.convertFrameToLayerSeconds(layerWithFootage, frameValue);
 		var startTime = layerWithFootage.startTime;
-		// Frames in AE are 0-based by default
-		var relativeSeconds = (frameValue - 1) / rate;
 		return startTime + relativeSeconds;
 	}
 	
+	this.convertFrameToLayerSeconds = function(layerWithFootage, frameValue)
+	{
+		var comp = layerWithFootage.containingComp;
+		var rate = 1.0 / comp.frameDuration;
+		// Frames in AE are 0-based by default
+		return (frameValue - 1) / rate;
+	    
+	}
 	var scriptName = "Apply Framecurve As Kronos";
 	
 	this.applyFramecurveToLayer = function(layer, curveTuples)
@@ -123,7 +128,7 @@ timeRemapApplier.applyFramecurveToLayer = function(layer, curveTuples)
 	for(var i = 0; i < curveTuples.length; i++) {
 		var tuple = curveTuples[i];
 		// Frame numbers are 0-based in AE
-		prop.setValueAtTime(i, this.convertFrameToSeconds(layer, tuple.useFrameOfSource));
+		prop.setValueAtTime(this.convertFrameToSeconds(layer, tuple.atFrame), this.convertFrameToLayerSeconds(layer, tuple.useFrameOfSource));
 	}
 }
 
