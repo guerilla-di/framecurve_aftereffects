@@ -30,8 +30,10 @@ function FramecurveApplier()
 	{
 		var comp = layerWithFootage.containingComp;
 		var rate = 1.0 / comp.frameDuration;
+		var startTime = layerWithFootage.startTime;
 		// Frames in AE are 0-based by default
-		return (frameValue - 1) / rate;
+		var relativeSeconds = (frameValue - 1) / rate;
+		return startTime + relativeSeconds;
 	}
 	
 	var scriptName = "Apply Framecurve As Kronos";
