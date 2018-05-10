@@ -2,8 +2,8 @@
 
 First of all, you will need our .jsx scripts for AE.
 
-* [Download the "Apply Framecurve To Selected Layer" script](//raw.github.com/guerilla-di/framecurve_aftereffects/master/scripts/Apply Framecurve To Selected Layer.jsx)
-* [Download the "Export Time Remap As Framecurve" script](//raw.github.com/guerilla-di/framecurve_aftereffects/master/scripts/Export Time Remap As Framecurve.jsx)
+* [Download the "Apply Framecurve To Selected Layer" script](/scripts/Apply Framecurve To Selected Layer.jsx)
+* [Download the "Export Time Remap As Framecurve" script](/scripts/Export Time Remap As Framecurve.jsx)
 
 Install these scripts like any others.
 
@@ -11,22 +11,22 @@ Install these scripts like any others.
 
 To apply a timewarp, select a layer in a comp.
 
-![Countdown clip](//raw.github.com/guerilla-di/framecurve_aftereffects/master/images/AE-countdown.png)
+![Countdown clip](/images/AE-countdown.png)
 
 From the "Scripts" menu, pick "Apply Framecurve To Selected Layer"
 
-![Menu](//raw.github.com/guerilla-di/framecurve_aftereffects/master/images/AE-menu.png)
+![Menu](/images/AE-menu.png)
 
 Then you can make your choice whether you want a layer Time Remap or a Kronos/Timewarp effect on top of the layer. 
 Pick the one you want..
 
-![Picker](//raw.github.com/guerilla-di/framecurve_aftereffects/master/images/AE-pick-style.png)
+![Picker](/images/AE-pick-style.png)
 
 ...and pick the Framecurve file you want to apply to the layer.
 
 The framecurve file will be loaded and applied to your layer.
 
-![Applied!](//raw.github.com/guerilla-di/framecurve_aftereffects/master/images/AE-applied.png)
+![Applied!](/images/AE-applied.png)
 
 ## Exporting framecurves from Time Remap
 
